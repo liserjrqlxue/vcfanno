@@ -873,7 +873,7 @@ func (a *Annotator) AnnotateEnds(v interfaces.Relatable, ends string) error {
 
 	var err error
 	// if Both, call the interval, left, and right version to annotate.
-	id := v.(*parsers.Variant).IVariant.(*vcfgo.Variant).Id()
+	id := v.(*parsers.Variant).IVariant.Id()
 	if ends == BOTH {
 		if e := a.AnnotateOne(v, a.Strict); e != nil {
 			err = e
