@@ -230,7 +230,6 @@ func main() {
 	*/
 
 	for interval := range stream {
-		log.Printf("%+v\n", interval)
 		_, _ = fmt.Fprintln(out, interval)
 		n++
 	}

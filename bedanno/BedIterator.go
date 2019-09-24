@@ -7,7 +7,6 @@ import (
 	"github.com/brentp/irelate/parsers"
 	"github.com/brentp/vcfgo"
 	"io"
-	"log"
 	"strconv"
 	"strings"
 )
@@ -36,7 +35,6 @@ func (vr *Reader) AddInfoToHeader(id string, itype string, number string, descri
 
 func (vr *Reader) Read() *Variant {
 	line, err := vr.buf.ReadString('\n')
-	//line,err:=vr.buf.ReadBytes('\n')
 	if err != nil {
 		if len(line) == 0 && err == io.EOF {
 			return nil
@@ -48,10 +46,7 @@ func (vr *Reader) Read() *Variant {
 	if line[len(line)-1] == '\n' {
 		line = line[:len(line)-1]
 	}
-	log.Printf("line:%+v", line)
-	fields := strings.Split(line, "\t")
-	variant := vr.Parse(fields)
-	return variant
+	return vr.Parse(strings.Split(line, "\t"))
 }
 
 func (vr *Reader) Parse(fields []string) *Variant {
@@ -85,22 +80,15 @@ func Bopen(rdr io.Reader) (*Reader, error) {
 	var LineNumber int64
 	var h []string
 
-	for {
-
-		LineNumber++
-		line, err := buffered.ReadString('\n')
-		if err != nil && err != io.EOF {
-			verr.Add(err, LineNumber)
-		}
-		if len(line) > 1 && line[len(line)-1] == '\n' {
-			line = line[:len(line)-1]
-		}
-
-		if LineNumber == 1 {
-			h = strings.Split(line, "\t")
-			break
-		}
+	LineNumber++
+	line, err := buffered.ReadString('\n')
+	if err != nil && err != io.EOF {
+		verr.Add(err, LineNumber)
 	}
+	if len(line) > 1 && line[len(line)-1] == '\n' {
+		line = line[:len(line)-1]
+	}
+	h = strings.Split(line, "\t")
 	reader := &Reader{buffered, rdr, verr, LineNumber, h}
 	return reader, reader.Error()
 }
