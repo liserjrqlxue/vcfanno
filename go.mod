@@ -11,7 +11,7 @@ require (
 	github.com/brentp/vcfanno v0.3.2
 	github.com/brentp/vcfgo v0.0.0-20190824021612-654ed2e5945d
 	github.com/brentp/xopen v0.0.0-20181116180855-111b45cadc7d
-	github.com/liserjrqlxue/simple-util v1.0.1
+	github.com/liserjrqlxue/goUtil v0.0.1
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/yuin/gluare v0.0.0-20170607022532-d7c94f1a80ed // indirect

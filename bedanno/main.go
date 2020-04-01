@@ -14,7 +14,7 @@ import (
 	"sync"
 	"time"
 
-	simpleUtil "github.com/liserjrqlxue/simple-util"
+	simpleUtil "github.com/liserjrqlxue/goUtil/simpleUtil"
 
 	"github.com/BurntSushi/toml"
 	"github.com/biogo/hts/bgzf"

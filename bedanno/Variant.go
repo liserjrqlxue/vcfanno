@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"github.com/brentp/irelate/interfaces"
 	"github.com/brentp/vcfgo"
-	simple_util "github.com/liserjrqlxue/simple-util"
+	simple_util "github.com/liserjrqlxue/goUtil/simpleUtil"
 	"strings"
 )
 
