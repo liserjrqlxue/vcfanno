@@ -4,7 +4,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	simple_util "github.com/liserjrqlxue/simple-util"
 	"io"
 	"log"
 	//_ "net/http/pprof"
@@ -14,6 +13,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	simpleUtil "github.com/liserjrqlxue/simple-util"
 
 	"github.com/BurntSushi/toml"
 	"github.com/biogo/hts/bgzf"
@@ -119,7 +120,7 @@ func main() {
 	var a = NewAnnotator(sources, luaString, *ends, strict, config.PostAnnotation)
 
 	var out io.Writer = os.Stdout
-	defer simple_util.DeferClose(os.Stdout)
+	defer simpleUtil.DeferClose(os.Stdout)
 
 	var err error
 	var qrdr io.Reader
