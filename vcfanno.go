@@ -71,7 +71,7 @@ see: https://github.com/brentp/vcfanno
 		return
 	}
 	queryFile := inFiles[1]
-	if !(xopen.Exists(queryFile) || queryFile == "") {
+	if !(xopen.Exists(queryFile) || queryFile == "" || queryFile == "-") {
 		fmt.Fprintf(os.Stderr, "\nERROR: can't find query file: %s\n", queryFile)
 		os.Exit(2)
 	}
